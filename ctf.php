@@ -9,8 +9,8 @@ if (isset($_POST['submit'])) {
     }
     $content = file_get_contents($tmp_path);
     $all_content = '<?php exit(0);'. $content . '?>';
-    $handle = $_FILES['file1']['name'];
-    fwrite($handle, $all_content);
+    $handle = fopen($file_name);
+    fwrite($handle);
     fclose($handle);
     echo "Done.";
 }
@@ -18,4 +18,3 @@ else{
     show_source(__FILE__);
 }
 ?> 
-
